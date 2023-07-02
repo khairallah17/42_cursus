@@ -41,31 +41,35 @@ static void	free_all(char **s)
 
 static void	check_set(char *sc, char c, char **res)
 {
-	char	*t;
 	char	*str;
+	int		i;
+	int		j;
 
-	while (*sc)
+	i = 0;
+	while (sc[i])
 	{
-		if (*sc != c)
+		j = 0;
+		if (sc[i] != c)
 		{
-			str = (char *)malloc(sizeof(char) * (_size(sc, c) + 1));
+			str = (char *)malloc(sizeof(char) * (_size(sc + i, c) + 1));
 			if (!str)
 				return (free_all(res));
-			t = str;
-			while (*sc)
+			while (sc[i])
 			{
-				*(str++) = *(sc++);
-				if (*sc == c || *sc == '\0')
+				str[j++] = sc[i++];
+				if (sc[i] == c || sc[i] == '\0')
 					break ;
 			}
-				*str = '\0';
-				*(res++) = t;
+				str[j] = '\0';
+				*(res++) = sc;
 		}
-		if (*sc == '\0')
+		if (sc[i] == '\0')
 			break ;
-		sc++;
+		i++;
+		free(str);
 	}
 	*(res) = NULL;
+	free(str);
 }
 
 static int	size_to_allocate(char *s, char c)

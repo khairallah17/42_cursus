@@ -17,22 +17,34 @@ void	f(void)
 	system("leaks push_swap");
 }
 
+void freelst(t_stack *lst)
+{
+	t_stack *tmp;
+	
+	tmp = lst;
+	while (lst && lst->nxt)
+	{
+		tmp = lst->nxt;
+		free(lst);
+		lst = tmp;
+	}
+	if (lst)
+		free(lst);
+}
+
 int	main(int ac, char *av[])
 {
 	char	**numbers_list;
 	t_stack	*head;
-	int		i;
 
 	// atexit(f);
 	numbers_list = NULL;
 	head = NULL;
-	i = -1;
 	if (ac == 2)
 	{
 		numbers_list = ft_split(av[1], ' ');
-		while (numbers_list[++i])
-			printf("str %d ==> %s\n", i, numbers_list[i]);
 		head = _init_stack(numbers_list);
+		freelst(head);
 		free(numbers_list);
 	}
 	else

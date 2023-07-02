@@ -27,10 +27,6 @@ t_stack	*create_node(int number)
 
 void	add_front(t_stack **head, t_stack *node)
 {
-	static int	counter;
-
-	printf("THIS IS TIME %d\n", counter);
-	counter++;
 	if (*head != NULL)
 	{
 		node->nxt = *head;

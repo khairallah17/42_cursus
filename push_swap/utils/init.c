@@ -29,10 +29,9 @@ t_stack	*_init_stack(char **str)
 	while (i < size)
 	{
 		node = create_node(tab[i]);
-		printf("%d\n", node->num);
 		add_front(&head, node);
 		i++;
 	}
-	free(node);
+	free(tab);
 	return (head);
 }

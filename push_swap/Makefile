@@ -6,7 +6,7 @@
 #    By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/02 09:30:47 by mkhairal          #+#    #+#              #
-#    Updated: 2023/07/02 16:52:14 by mkhairal         ###   ########.fr        #
+#    Updated: 2023/07/06 22:51:32 by mkhairal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC = push_swap_main.c \
 	./utils/convert.c \
 	./utils/linked_list.c \
 	./utils/init.c \
+	./utils/parser.c \
+	./utils/instructions.c \
 	./helper_functions/ft_atoi.c \
 	./helper_functions/ft_putnbr.c \
 	./helper_functions/ft_putstr.c \

@@ -1,50 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.c                                          :+:      :+:    :+:   */
+/*   bucket_sort2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/02 13:58:29 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:00:13 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/10 02:19:41 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/10 02:46:51 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	how_many_numbers(char **str)
+void	top_and_push(t_stack **stack_a, t_stack **stack_b, int pos)
 {
+	int	size;
 	int	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	*convert_to_int(char **str, int size)
-{
-	int	i;
-	int	*tab;
-
-	i = -1;
-	tab = (int *)malloc(sizeof (int) * size);
-	if (!tab)
-		return (0);
-	while (++i < size)
-		tab[i] = ft_atoi(str[i]);
-	i = -1;
-	check_duplicates(tab, size);
-	return (tab);
-}
-
-int	check_splitable(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		if (str[i] == ' ')
-			return (0);
-	return (1);
+	size = list_size(stack_b);
+	i = get_position(stack_b, pos);
+	if (i > size / 2)
+	{
+		while (i++ < size)
+			rrb(stack_b);
+	}
+	else if (i < size / 2)
+	{
+		while (i-- > 0)
+			rb(stack_b);
+	}
+	if (*sb)
+		pa(stack_a, stack_b);
 }

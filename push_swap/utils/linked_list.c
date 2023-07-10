@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 11:14:30 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/06 22:52:14 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/10 01:04:12 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,23 @@ t_stack	*create_node(int number)
 		return (0);
 	node->num = number;
 	node->nxt = NULL;
-	node->prv = NULL;
+	node->sorted = 0;
+	node->maxed = 0;
 	return (node);
 }
 
 void	add_front(t_stack **head, t_stack *node)
 {
+	t_stack	*last;
+
+	last = NULL;
 	if (*head != NULL)
 	{
-		node->nxt = *head;
-		(*head)->prv = node;
+		last = get_last(head);
+		last->nxt = node;
 	}
-	*head = node;
+	else
+		*head = node;
 	return ;
 }
 
@@ -51,14 +56,27 @@ void	freelst(t_stack *lst)
 		free(lst);
 }
 
-t_stack	*get_last(t_stack *head)
+t_stack	*get_last(t_stack **head)
 {
 	t_stack	*tmp;
 
-	tmp = head;
+	tmp = *head;
+	while (tmp->nxt)
+		tmp = tmp->nxt;
+	return (tmp);
+}
+
+t_stack	*get_before_last(t_stack **head)
+{
+	t_stack	*tmp;
+
+	if (!head)
+		return (NULL);
+	tmp = *head;
+	if (!tmp)
+		return (NULL);
 	while (tmp->nxt->nxt)
 		tmp = tmp->nxt;
-
 	return (tmp);
 }
 

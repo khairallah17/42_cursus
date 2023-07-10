@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/02 16:31:25 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:36:28 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/09 14:01:53 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/09 14:02:07 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*_init_stack(char **str)
+char	*ft_strdup(const char *s1)
 {
-	t_stack	*head;
-	int		*tab;
-	int		i;
-	t_stack	*node;
-	int		size;
+	char	*s;
+	char	*t;
 
-	head = NULL;
-	size = how_many_numbers(str);
-	tab = convert_to_int(str, size);
-	i = 0;
-	if (!tab)
-		return (NULL);
-	while (i < size)
+	s = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	t = s;
+	if (!s1)
 	{
-		node = create_node(tab[i]);
-		add_front(&head, node);
-		i++;
+		free(s);
+		return (NULL);
 	}
-	free(tab);
-	return (head);
-}
-
-void	quite_exit(char *str)
-{
-	ft_putstr(str);
-	ft_putstr("Error\n");
-	exit(0);
+	if (!s)
+		return (NULL);
+	while (*s1)
+	{
+		*s = *s1;
+		s++;
+		s1++;
+	}
+	*s = '\0';
+	return (t);
 }

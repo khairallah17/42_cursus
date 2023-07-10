@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.c                                          :+:      :+:    :+:   */
+/*   instructions2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/02 13:58:29 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:00:13 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/08 22:06:23 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/09 15:27:49 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	how_many_numbers(char **str)
+void	ss(t_stack **sa, t_stack **sb)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	swap(sa);
+	swap(sb);
+	ft_putstr("ss\n");
 }
 
-int	*convert_to_int(char **str, int size)
+void	rr(t_stack **sa, t_stack **sb)
 {
-	int	i;
-	int	*tab;
-
-	i = -1;
-	tab = (int *)malloc(sizeof (int) * size);
-	if (!tab)
-		return (0);
-	while (++i < size)
-		tab[i] = ft_atoi(str[i]);
-	i = -1;
-	check_duplicates(tab, size);
-	return (tab);
+	rotate(sa);
+	rotate(sb);
+	ft_putstr("rr\n");
 }
 
-int	check_splitable(char *str)
+void	rrr(t_stack **sa, t_stack **sb)
 {
-	int	i;
+	reverse_rotate(sa);
+	reverse_rotate(sb);
+	ft_putstr("rrr\n");
+}
 
-	i = 0;
-	while (str[i])
-		if (str[i] == ' ')
-			return (0);
-	return (1);
+void	sa(t_stack **head)
+{
+	swap(head);
+	ft_putstr("sa\n");
+}
+
+void	sb(t_stack **head)
+{
+	swap(head);
+	ft_putstr("sb\n");
 }

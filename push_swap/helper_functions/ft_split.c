@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:33:58 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/02 16:14:40 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:35:55 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,13 @@ static void	check_set(char *sc, char c, char **res)
 					break ;
 			}
 				str[j] = '\0';
-				*(res++) = sc;
+				*(res++) = str;
 		}
 		if (sc[i] == '\0')
 			break ;
 		i++;
-		free(str);
 	}
 	*(res) = NULL;
-	free(str);
 }
 
 static int	size_to_allocate(char *s, char c)

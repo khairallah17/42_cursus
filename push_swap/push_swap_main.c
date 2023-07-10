@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:30:44 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/06 22:51:20 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/10 02:42:50 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,36 @@ void	f(void)
 
 int	main(int ac, char *av[])
 {
-	char	**numbers_list;
 	t_stack	*head;
-	t_stack	*last;
+	t_stack	*head_b;
+	char	*numbers_list;
+	char	**numbers;
+	int		i;
 
 	// atexit(f);
-	numbers_list = NULL;
+	i = 1;
 	head = NULL;
-	last = NULL;
-	if (ac == 2)
+	head_b = NULL;
+	numbers_list = NULL;
+	if (ac > 1)
 	{
-		numbers_list = ft_split(av[1], ' ');
-		head = _init_stack(numbers_list);
-		printf("===================== INIT STATE =====================\n");
+		while (i < ac)
+		{
+			printf("%s\n", av[i]);
+			numbers_list = ft_strjoin(numbers_list, av[i++]);
+			numbers_list = ft_strjoin(numbers_list, " ");
+		}
+		numbers = ft_split(numbers_list, ' ');
+		check_invalid_chars(numbers);
+		head = _init_stack(numbers);
+		// print(&head);
+		sort_index(&head);
+		buckets(&head, &head_b);
+		printf("BEFORE STACK B\n");
 		print(&head);
-		// swap(head);
-		// printf("===================== AFTER SWAP =====================\n");
-		// print(head);
-		freelst(head);
-		free(numbers_list);
+		printf("\n");
+		printf("AFTER STACK B\n");
+		// freelst(head);
 	}
 	else
 		ft_putstr("Error\n");

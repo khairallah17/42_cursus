@@ -1,50 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/02 13:58:29 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:00:13 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/09 13:56:08 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/09 17:36:12 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	how_many_numbers(char **str)
+char	*ft_strjoin(const char	*s1, const char	*s2)
 {
-	int	i;
+	char	*s;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	*convert_to_int(char **str, int size)
-{
-	int	i;
-	int	*tab;
-
-	i = -1;
-	tab = (int *)malloc(sizeof (int) * size);
-	if (!tab)
-		return (0);
-	while (++i < size)
-		tab[i] = ft_atoi(str[i]);
-	i = -1;
-	check_duplicates(tab, size);
-	return (tab);
-}
-
-int	check_splitable(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		if (str[i] == ' ')
-			return (0);
-	return (1);
+	j = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!s)
+		return (NULL);
+	while (s1[j])
+		s[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		s[i++] = s2[j++];
+	s[i] = '\0';
+	return (s);
 }

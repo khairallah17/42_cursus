@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:32:17 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/02 09:33:06 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/09 14:45:07 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,28 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int		signe_counter;
-	int		result;
+	int			signe_counter;
+	long		result;
+	int			i;
 
 	result = 0;
+	i = 0;
 	signe_counter = 1;
-	while (((*nptr >= 9 && *nptr <= 13) || *nptr == 32) && *nptr)
-		nptr++;
-	if (*nptr == '-')
+	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
+		i++;
+	if (nptr[i] == '-')
 	{
 		signe_counter = -1;
-		nptr++;
+		i++;
 	}
-	else if (*nptr == '+')
-		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		result = result * 10 + (*(nptr++) - '0');
-		if (result <= -469762049 && signe_counter == 1)
-			return (-1);
-		else if (result == INT_MIN)
-			break ;
-		else if (result <= -469762049 && signe_counter == -1)
-			return (0);
-	}
-	return (result * signe_counter);
+	else if (nptr[i] == '+')
+		i++;
+	if (nptr[i] < '0' || nptr[i] > '9')
+		quite_exit("invalid character detected\n");
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+		result = result * 10 + (nptr[i++] - '0');
+	result *= signe_counter;
+	if (result > INT_MAX || result < INT_MIN)
+		quite_exit("number outside of int range\n");
+	return (result);
 }

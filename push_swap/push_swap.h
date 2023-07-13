@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:30:40 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/10 02:45:59 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:52:29 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		get_node_position(t_stack **head, int number);
 void	sort_index(t_stack **head);
 int		check_duplicates(int *tab, int size);
 int		check_for_max_int(char **str);
-void	quite_exit(char *str);
+void	quite_exit();
 void	sa(t_stack **head);
 void	sb(t_stack **head);
 void	ss(t_stack **sa, t_stack **sb);
@@ -83,5 +83,19 @@ void	get_two_maxs(t_stack **head, t_maximus **maxs);
 void	final_sort(t_stack **stack_a, t_stack **stack_b);
 void	buckets(t_stack **stack_a, t_stack **stack_b);
 int		get_position(t_stack **head, int number);
+void	top_and_push(t_stack **stack_a, t_stack **stack_b, int pos);
+void	hard_coded(t_stack **head);
+void	sort4(t_stack **stack_a, t_stack **stack_b);
+void	sort5(t_stack **stack_a, t_stack **stack_b);
+void	small_size_sort(t_stack **stack_a, t_stack **stack_b, int size);
+int		search_min(t_stack **head);
+void	position_sort_case1(t_stack **stack_a, int position);
+void	position_sort_case2(t_stack **stack_a, int position);
+void	sort_helper(t_stack **stack_a, t_stack **stack_b, int position);
+void	max_it(t_stack **head, int num);
+void	print_index(t_stack **head);
+int		check_for_numbers(char *str);
+int		is_number(char c);
+int		is_signe(char c);
 
 #endif

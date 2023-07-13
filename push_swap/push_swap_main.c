@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:30:44 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/10 02:42:50 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:38:40 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 void	f(void)
 {
 	system("leaks push_swap");
+}
+
+void	print_index(t_stack **head)
+{
+	t_stack *tmp;
+
+	tmp  = *head;
+	while (tmp)
+	{
+		printf("NUMBER ==> %d || INDEX ==> %d\n", tmp->num, tmp->sorted);
+		tmp = tmp->nxt;
+	}
+	return ;
 }
 
 int	main(int ac, char *av[])
@@ -34,21 +47,19 @@ int	main(int ac, char *av[])
 	{
 		while (i < ac)
 		{
-			printf("%s\n", av[i]);
+			if (!check_for_numbers(av[i]))
+				quite_exit();
 			numbers_list = ft_strjoin(numbers_list, av[i++]);
 			numbers_list = ft_strjoin(numbers_list, " ");
 		}
 		numbers = ft_split(numbers_list, ' ');
 		check_invalid_chars(numbers);
 		head = _init_stack(numbers);
-		// print(&head);
 		sort_index(&head);
-		buckets(&head, &head_b);
-		printf("BEFORE STACK B\n");
-		print(&head);
-		printf("\n");
-		printf("AFTER STACK B\n");
-		// freelst(head);
+		if (!is_sorted(&head))
+			buckets(&head, &head_b);
+		freelst(head);
+		freelst(head_b);
 	}
 	else
 		ft_putstr("Error\n");

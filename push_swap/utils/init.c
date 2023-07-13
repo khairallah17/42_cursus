@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 16:31:25 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:36:28 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:12:25 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ t_stack	*_init_stack(char **str)
 	return (head);
 }
 
-void	quite_exit(char *str)
+void	quite_exit(void)
 {
-	ft_putstr(str);
 	ft_putstr("Error\n");
 	exit(0);
 }

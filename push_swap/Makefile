@@ -6,14 +6,14 @@
 #    By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/02 09:30:47 by mkhairal          #+#    #+#              #
-#    Updated: 2023/07/10 02:33:26 by mkhairal         ###   ########.fr        #
+#    Updated: 2023/07/13 09:05:29 by mkhairal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
 RM = rm -f
 
 SRC = push_swap_main.c \
@@ -22,12 +22,14 @@ SRC = push_swap_main.c \
 	./utils/linked_list2.c \
 	./utils/init.c \
 	./utils/parser.c \
+	./utils/parser2.c \
 	./utils/instructions.c \
 	./utils/instructions2.c \
 	./utils/instructions3.c \
 	./utils/instructions4.c \
 	./utils/bucket_sort.c \
 	./utils/bucket_sort2.c \
+	./utils/bucket_sort3.c \
 	./helper_functions/ft_atoi.c \
 	./helper_functions/ft_putnbr.c \
 	./helper_functions/ft_putstr.c \

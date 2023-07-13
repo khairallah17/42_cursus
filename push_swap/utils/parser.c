@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 18:57:56 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 17:38:34 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:53:08 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int	check_invalid_chars(char **str)
 		while (str[i][j])
 		{
 			if (!is_number(str[i][j]) && !is_signe(str[i][j]))
-			{
-					printf("%d\n", str[i][j]);
-					quite_exit("Inavlid character detected\n");
-			}
+				quite_exit();
 			j++;
 		}
 		i++;
@@ -57,7 +54,7 @@ int	check_duplicates(int *tab, int size)
 		while (j < size)
 		{
 			if (tab[i] == tab[j])
-				quite_exit("dubplicates detected\n");
+				quite_exit();
 			j++;
 		}
 		i++;
@@ -77,10 +74,7 @@ int	check_for_max_int(char **str)
 		while (str[j])
 		{
 			if (ft_strcmp(str[i], str[j]))
-			{
-				ft_putstr("Error\n");
-				exit(0);
-			}
+				quite_exit();
 		}
 		i++;
 	}

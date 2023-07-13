@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 11:14:30 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/10 01:04:12 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:00:29 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	freelst(t_stack *lst)
 {
 	t_stack	*tmp;
 
+	if (lst == NULL)
+		return ;
 	tmp = lst;
 	while (lst && lst->nxt)
 	{

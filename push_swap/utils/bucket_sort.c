@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 15:05:49 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/10 02:45:34 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 10:43:22 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b, int b_size, int o_size)
 	else if ((*stack_a)->sorted > b_size - (o_size / 2))
 	{
 		pb(stack_a, stack_b);
-		if ((*stack_a)->sorted >= b_size)
+		if ((*stack_a) && (*stack_a)->sorted >= b_size)
 			ra(stack_a);
 		rb(stack_b);
 	}
@@ -63,12 +63,12 @@ void	get_two_maxs(t_stack **head, t_maximus **maxs)
 		if ((*maxs)->max1 < tmp->num)
 		{
 			(*maxs)->max1 = tmp->num;
-			tmp->maxed = 1;
 			(*maxs)->pos1 = pos;
 		}
 		tmp = tmp->nxt;
 		pos++;
 	}
+	max_it(head, (*maxs)->max1);
 	tmp = *head;
 	pos = 0;
 	while (tmp)
@@ -81,6 +81,7 @@ void	get_two_maxs(t_stack **head, t_maximus **maxs)
 		tmp = tmp->nxt;
 		pos++;
 	}
+	max_it(head, (*maxs)->max2);
 }
 
 void	final_sort(t_stack **stack_a, t_stack **stack_b)
@@ -88,14 +89,14 @@ void	final_sort(t_stack **stack_a, t_stack **stack_b)
 	t_maximus	*maxs;
 
 	maxs = (t_maximus *)malloc(sizeof(t_maximus));
-	maxs->max1 = 0;
-	maxs->max2 = 0;
+	maxs->max1 = INT_MIN;
+	maxs->max2 = INT_MIN + 1;
 	maxs->pos1 = 0;
 	maxs->pos2 = 0;
 	get_two_maxs(stack_b, &maxs);
-	if (maxs->pos2 > list_size(stack_b))
+	if (maxs->pos2 > (list_size(stack_b) / 2))
 		maxs->pos2 = list_size(stack_b) - maxs->pos2;
-	if (maxs->pos1 > list_size(stack_b))
+	if (maxs->pos1 > (list_size(stack_b) / 2))
 		maxs->pos1 = list_size(stack_b) - maxs->pos1;
 	if (maxs->pos1 > maxs->pos2)
 	{
@@ -120,7 +121,9 @@ void	buckets(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	size = list_size(stack_a);
 	if (size <= 5)
-		return ;
+	{
+		small_size_sort(stack_a, stack_b, size);
+	}
 	else if (size > 5)
 	{
 		split_bucket(stack_a, stack_b, size);

@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:43:02 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/10 02:47:06 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:20:57 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	sort_index(t_stack **head)
 int	is_sorted(t_stack **head)
 {
 	t_stack	*tmp;
+	t_stack	*tmp1;
 	int		sub;
 
 	if (head == NULL)
@@ -82,12 +83,17 @@ int	is_sorted(t_stack **head)
 	if (*head == NULL)
 		return (0);
 	tmp = *head;
+	tmp1 = (*head)->nxt;
 	sub = 0;
-	while (tmp->nxt)
+	while (tmp)
 	{
-		sub = tmp->sorted - tmp->nxt->sorted;
-		if (ft_abs(sub) != 1)
-			return (0);
+		tmp1 = tmp->nxt;
+		while (tmp1)
+		{
+			if (tmp->num > tmp1->num)
+				return (0);
+			tmp1 = tmp1->nxt;
+		}
 		tmp = tmp->nxt;
 	}
 	return (1);

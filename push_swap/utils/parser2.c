@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   parser2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 13:56:08 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 08:42:01 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/13 00:19:46 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/13 11:51:03 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-char	*ft_strjoin(const char	*s1, const char	*s2)
+int	check_for_numbers(char *str)
 {
-	char	*s;
-	int		i;
-	int		j;
+	int	i;
+	int	num;
+	int	signe;
 
 	i = 0;
-	j = 0;
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
-	s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!s)
-		return (NULL);
-	while (s1[j])
-		s[i++] = s1[j++];
-	j = 0;
-	while (s2[j])
-		s[i++] = s2[j++];
-	s[i] = '\0';
-	return (s);
+	num = 0;
+	signe = 0;
+	while (str[i])
+	{
+		if (is_number(str[i]))
+			num++;
+		i++;
+	}
+	return (1);
 }

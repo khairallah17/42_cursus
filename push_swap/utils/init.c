@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 16:31:25 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 09:12:25 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:36:25 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,21 @@ t_stack	*_init_stack(char **str)
 		i++;
 	}
 	free(tab);
+	free_full(str);
 	return (head);
+}
+
+void	free_full(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
 void	quite_exit(void)

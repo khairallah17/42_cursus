@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 11:14:30 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 09:00:29 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:54:04 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_stack	*create_node(int number)
 	t_stack	*node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
+			printf("create  %p\n", node);
 	if (!node)
 		return (0);
 	node->num = number;

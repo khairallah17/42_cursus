@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 13:58:29 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:00:13 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:53:05 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	*convert_to_int(char **str, int size)
 
 	i = -1;
 	tab = (int *)malloc(sizeof (int) * size);
+			printf("conv to int %p\n", tab);
 	if (!tab)
 		return (0);
 	while (++i < size)

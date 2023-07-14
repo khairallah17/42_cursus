@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:32:17 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/09 14:45:07 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:22:59 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	ft_atoi(const char *nptr)
 	else if (nptr[i] == '+')
 		i++;
 	if (nptr[i] < '0' || nptr[i] > '9')
-		quite_exit("invalid character detected\n");
+		quite_exit();
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		result = result * 10 + (nptr[i++] - '0');
 	result *= signe_counter;
 	if (result > INT_MAX || result < INT_MIN)
-		quite_exit("number outside of int range\n");
+		quite_exit();
 	return (result);
 }

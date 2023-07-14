@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 13:56:08 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 08:42:01 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:52:16 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*ft_strjoin(const char	*s1, const char	*s2)
 	if (!s2)
 		return (ft_strdup(s1));
 	s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+			printf("join %p\n", s);
 	if (!s)
 		return (NULL);
 	while (s1[j])

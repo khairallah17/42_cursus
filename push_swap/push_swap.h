@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:30:40 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 08:52:29 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:36:35 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		get_node_position(t_stack **head, int number);
 void	sort_index(t_stack **head);
 int		check_duplicates(int *tab, int size);
 int		check_for_max_int(char **str);
-void	quite_exit();
+void	quite_exit(void);
 void	sa(t_stack **head);
 void	sb(t_stack **head);
 void	ss(t_stack **sa, t_stack **sb);
@@ -94,8 +94,9 @@ void	position_sort_case2(t_stack **stack_a, int position);
 void	sort_helper(t_stack **stack_a, t_stack **stack_b, int position);
 void	max_it(t_stack **head, int num);
 void	print_index(t_stack **head);
-int		check_for_numbers(char *str);
+int		is_empty(char *str);
 int		is_number(char c);
 int		is_signe(char c);
+void	free_full(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:30:44 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 11:38:40 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:38:13 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char *av[])
 	char	**numbers;
 	int		i;
 
-	// atexit(f);
+	atexit(f);
 	i = 1;
 	head = NULL;
 	head_b = NULL;
@@ -47,10 +47,12 @@ int	main(int ac, char *av[])
 	{
 		while (i < ac)
 		{
-			if (!check_for_numbers(av[i]))
+			if (!is_empty(av[i]))
 				quite_exit();
 			numbers_list = ft_strjoin(numbers_list, av[i++]);
+			free(numbers_list);
 			numbers_list = ft_strjoin(numbers_list, " ");
+			free(numbers_list);
 		}
 		numbers = ft_split(numbers_list, ' ');
 		check_invalid_chars(numbers);
@@ -58,6 +60,7 @@ int	main(int ac, char *av[])
 		sort_index(&head);
 		if (!is_sorted(&head))
 			buckets(&head, &head_b);
+		free(numbers_list);
 		freelst(head);
 		freelst(head_b);
 	}

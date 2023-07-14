@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:33:58 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/07 14:35:55 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 00:51:44 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	check_set(char *sc, char c, char **res)
 		if (sc[i] != c)
 		{
 			str = (char *)malloc(sizeof(char) * (_size(sc + i, c) + 1));
+			printf("check_set %p\n", str);
 			if (!str)
 				return (free_all(res));
 			while (sc[i])
@@ -60,8 +61,8 @@ static void	check_set(char *sc, char c, char **res)
 				if (sc[i] == c || sc[i] == '\0')
 					break ;
 			}
-				str[j] = '\0';
-				*(res++) = str;
+			str[j] = '\0';
+			*(res++) = str;
 		}
 		if (sc[i] == '\0')
 			break ;
@@ -99,6 +100,7 @@ char	**ft_split(const char *s, char c)
 	if (!sc)
 		return (NULL);
 	res = (char **)malloc(sizeof(char *) * size_to_allocate(sc, c));
+			printf("split %p\n", res);
 	if (!res)
 		return (NULL);
 	y = res;

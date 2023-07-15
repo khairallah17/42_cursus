@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 23:16:42 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/15 11:46:41 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:09:44 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	instructions_checker(char *str)
 		return (1);
 	else if (!ft_strcmp(str, "rrr\n"))
 		return (1);
-	else
-		quite_exit();
 	return (0);
 }
 

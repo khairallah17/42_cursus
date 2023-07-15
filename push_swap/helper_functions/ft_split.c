@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:33:58 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 23:44:23 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 21:27:35 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,8 @@ static void	check_set(char *sc, char c, char **res)
 			str = (char *)malloc(sizeof(char) * (_size(sc + i, c) + 1));
 			if (!str)
 				return (free_all(res));
-			while (sc[i])
-			{
+			while (sc[i] && sc[i] != c)
 				str[j++] = sc[i++];
-				if (sc[i] == c || sc[i] == '\0')
-					break ;
-			}
 			str[j] = '\0';
 			*(res++) = str;
 		}

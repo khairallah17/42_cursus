@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 21:47:57 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/15 11:31:34 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 15:51:05 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 # include <string.h>
 
-# define BUFFER_SIZE 1000
+# define BUFFER_SIZE 1024
 
 typedef struct h_stack {
 	int				num;

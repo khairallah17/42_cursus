@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 21:42:38 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/15 11:50:35 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 20:55:12 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,35 @@ char	*join_params(char **av, int ac)
 	return (numbers_list);
 }
 
-void	f(void)
+void	global_checker(t_stack **stack_a, t_stack **stack_b)
 {
-	system("leaks checker_bonus");
+	char	*ins;
+	int		check;
+
+	ins = NULL;
+	check = 1;
+	while (check)
+	{
+		ins = get_next_line(0);
+		check = instructions_checker(ins);
+		execute_instructions(stack_a, stack_b, ins);
+		free(ins);
+	}
+	if (is_sorted(stack_a))
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
 }
 
 int	main(int ac, char **av)
 {
-    t_stack *head;
-	t_stack *head_b;
+	t_stack	*head;
+	t_stack	*head_b;
 	char	*numbers_list;
 	char	**numbers;
-	char	*ins;
-	int		check;
-	
-	atexit(f);
+
 	head = NULL;
 	head_b = NULL;
-	ins = NULL;
 	numbers_list = NULL;
 	if (ac > 1)
 	{
@@ -60,25 +71,12 @@ int	main(int ac, char **av)
 		numbers = ft_split(numbers_list, ' ');
 		check_invalid_chars(numbers);
 		head = _init_stack(numbers);
-		check = 1;
 		sort_index(&head);
 		if (!is_sorted(&head))
-		{
-			while (check)
-			{
-				ins = get_next_line(0);
-				check = instructions_checker(ins);
-				execute_instructions(&head, &head_b, ins);
-				free(ins);
-			}
-			if (is_sorted(&head))
-				ft_putstr("OK\n");
-			else
-				ft_putstr("KO\n");
-			free(numbers_list);
-			freelst(head);
-			freelst(head_b);
-		}
+			global_checker(&head, &head_b);
+		free(numbers_list);
+		freelst(head);
+		freelst(head_b);
 	}
 	else
 		ft_putstr("Error\n");

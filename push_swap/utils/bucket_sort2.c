@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 02:19:41 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/15 08:56:24 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 21:44:24 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,28 @@ void	top_and_push(t_stack **stack_a, t_stack **stack_b, int pos)
 
 void	hard_coded(t_stack **head)
 {
-	t_stack	*tmp;
-	/*use 3 variables for compration*/
+	t_stack	*ele1;
+	t_stack	*ele2;
+	t_stack	*ele3;
 
-	tmp = *head;
-	if (tmp->sorted < tmp->nxt->sorted && tmp->nxt->nxt->sorted > tmp->sorted
-		&& tmp->nxt->sorted > tmp->nxt->nxt->sorted)
-	{
-		rra(head);
-		sa(head);
-	}
-	else if (tmp->sorted > tmp->nxt->sorted
-		&& tmp->nxt->nxt->sorted < tmp->sorted
-		&& tmp->nxt->sorted > tmp->nxt->nxt->sorted)
-	{
-		sa(head);
-		rra(head);
-	}
-	else if (tmp->sorted < tmp->nxt->sorted
-		&& tmp->nxt->sorted > tmp->nxt->nxt->sorted
-		&& tmp->nxt->nxt->sorted < tmp->sorted)
-		rra(head);
-	else if (tmp->sorted > tmp->nxt->sorted
-		&& tmp->nxt->nxt->sorted < tmp->sorted)
-		ra(head);
-	else if (tmp->sorted > tmp->nxt->sorted 
-		&& tmp->nxt->sorted < tmp->nxt->nxt->sorted
-		&& tmp->nxt->nxt->sorted > tmp->sorted)
-		sa(head);
+	ele1 = *head;
+	ele2 = (*head)->nxt;
+	ele3 = (*head)->nxt->nxt;
+	if (ele1->sorted < ele2->sorted && ele2->sorted > ele3->sorted
+		&& ele3->sorted > ele1->sorted)
+		return (rra(head), sa(head));
+	else if (ele1->sorted > ele2->sorted && ele2->sorted > ele3->sorted
+		&& ele3->sorted < ele1->sorted)
+		return (sa(head), rra(head));
+	else if (ele1->sorted < ele2->sorted && ele2->sorted > ele3->sorted
+		&& ele3->sorted < ele1->sorted)
+		return (rra(head));
+	else if (ele1->sorted > ele2->sorted && ele2->sorted < ele3->sorted \
+				&& ele3->sorted < ele1->sorted)
+		return (ra(head));
+	else if (ele1->sorted > ele2->sorted && ele2->sorted < ele3->sorted
+		&& ele3->sorted > ele1->sorted)
+		return (sa(head));
 	return ;
 }
 

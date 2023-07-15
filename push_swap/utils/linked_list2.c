@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:43:02 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 11:20:57 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:55:43 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int	is_sorted(t_stack **head)
 {
 	t_stack	*tmp;
 	t_stack	*tmp1;
-	int		sub;
 
 	if (head == NULL)
 		return (0);
@@ -84,7 +83,6 @@ int	is_sorted(t_stack **head)
 		return (0);
 	tmp = *head;
 	tmp1 = (*head)->nxt;
-	sub = 0;
 	while (tmp)
 	{
 		tmp1 = tmp->nxt;

@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 11:25:54 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 22:57:19 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 20:45:22 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*read_first_line(int fd, char *str)
 			return (0);
 		}
 		file[read_byte] = '\0';
+		free(str);
 		str = ft_strjoin(str, file);
 	}
 	free(file);
@@ -94,10 +95,7 @@ char	*get_next_line(int fd)
 		return (0);
 	str = read_first_line(fd, str);
 	if (!str)
-	{
-		free(str);
 		return (0);
-	}
 	file = read_correct_line(str);
 	str = read_next_line(str);
 	return (file);

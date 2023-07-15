@@ -6,15 +6,15 @@
 #    By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/02 09:30:47 by mkhairal          #+#    #+#              #
-#    Updated: 2023/07/15 11:48:58 by mkhairal         ###   ########.fr        #
+#    Updated: 2023/07/15 19:35:29 by mkhairal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-NAME_BONUS = checker_bonus
+NAME_BONUS = checker
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address -g
 RM = rm -f
 
 SRC = push_swap_main.c \

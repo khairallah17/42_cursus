@@ -6,11 +6,11 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 09:33:58 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 23:44:23 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:25:31 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
 static	int	_size(char *s, char c)
 {

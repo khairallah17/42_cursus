@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 02:19:41 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/13 10:18:11 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 08:56:24 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,7 @@ void	hard_coded(t_stack **head)
 
 void	sort4(t_stack **stack_a, t_stack **stack_b)
 {
-	int	position;
-
-	position = search_min(stack_a);
-	position_sort_case1(stack_a, position);
-	pb(stack_a, stack_b);
+	position_sort_case1(stack_a, stack_b);
 	hard_coded(stack_a);
 	pa(stack_a, stack_b);
 	return ;
@@ -80,16 +76,8 @@ void	sort4(t_stack **stack_a, t_stack **stack_b)
 
 void	sort5(t_stack **stack_a, t_stack **stack_b)
 {
-	int	position;
-
-	position = search_min(stack_a);
-	position_sort_case2(stack_a, position);
-	pb(stack_a, stack_b);
-	position = search_min(stack_a);
-	position_sort_case1(stack_a, position);
-	pb(stack_a, stack_b);
-	hard_coded(stack_a);
-	pa(stack_a, stack_b);
+	position_sort_case2(stack_a, stack_b);
+	sort4(stack_a, stack_b);
 	pa(stack_a, stack_b);
 	return ;
 }

@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 13:56:08 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 23:31:45 by mkhairal         ###   ########.fr       */
+/*   Created: 2022/11/06 12:40:17 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/14 23:23:00 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strjoin(const char	*s1, const char	*s2)
+char	*ft_strchr(char *s, int c)
 {
-	char	*s;
-	int		i;
-	int		j;
+	size_t	i;
+	int		flag;
 
-	i = 0;
-	j = 0;
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
-	s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!s)
+		return (0);
+	flag = 0;
+	i = ft_strlen(s);
+	if ((char)c == '\0')
+		return ((char *)(s + i));
+	while (*s)
+	{
+		if ((char)*s == (char)c)
+		{
+			flag = 1;
+			break ;
+		}
+		s++;
+	}
+	if (!flag)
 		return (NULL);
-	while (s1[j])
-		s[i++] = s1[j++];
-	j = 0;
-	while (s2[j])
-		s[i++] = s2[j++];
-	s[i] = '\0';
-	return (s);
+	return ((char *)s);
 }
+

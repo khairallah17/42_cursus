@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 14:01:53 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 21:38:33 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/02 09:35:35 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/14 22:56:56 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_putnbr(int n)
 {
-	char	*s;
-	int		i;
+	unsigned int	number;
+	char			res;
 
-	s = NULL;
-	i = 0;
-	if (!s1)
-		return (NULL);
-	s = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (!s)
-		return (NULL);
-	while (s1[i])
+	if (n < 0)
 	{
-		s[i] = s1[i];
-		i++;
+		write(1, "-", 1);
+		number = -n;
 	}
-	s[i] = '\0';
-	return (s);
+	else
+		number = n;
+	if (number > 9)
+	{
+		ft_putnbr(number / 10);
+		number %= 10;
+	}
+	res = number + '0';
+	write(1, &res, 1);
 }

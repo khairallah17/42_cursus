@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   instructions4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 14:01:53 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 21:38:33 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/09 15:20:46 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/15 10:38:34 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strdup(const char *s1)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	char	*s;
-	int		i;
+	push(stack_a, stack_b);
+}
 
-	s = NULL;
-	i = 0;
-	if (!s1)
-		return (NULL);
-	s = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (!s)
-		return (NULL);
-	while (s1[i])
-	{
-		s[i] = s1[i];
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
+void	pb(t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_b, stack_a);
 }

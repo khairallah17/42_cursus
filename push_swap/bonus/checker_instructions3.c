@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   instructions3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 14:01:53 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 21:38:33 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/08 22:16:10 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/15 10:51:05 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strdup(const char *s1)
+void	ra(t_stack **head)
 {
-	char	*s;
-	int		i;
+	rotate(head);
+}
 
-	s = NULL;
-	i = 0;
-	if (!s1)
-		return (NULL);
-	s = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (!s)
-		return (NULL);
-	while (s1[i])
-	{
-		s[i] = s1[i];
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
+void	rb(t_stack **head)
+{
+	rotate(head);
+}
+
+void	rra(t_stack **head)
+{
+	reverse_rotate(head);
+}
+
+void	rrb(t_stack **head)
+{
+	reverse_rotate(head);
 }

@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/02 09:30:40 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/15 09:10:26 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/14 21:47:57 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/15 11:31:34 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
+
+# include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
+# include <string.h>
+
+# define BUFFER_SIZE 1000
 
 typedef struct h_stack {
 	int				num;
@@ -24,13 +29,10 @@ typedef struct h_stack {
 	struct h_stack	*nxt;
 }	t_stack;
 
-typedef struct h_maximus {
-	int	max1;
-	int	pos1;
-	int	max2;
-	int	pos2;
-}	t_maximus;
-
+char	*get_next_line(int fd);
+char	*ft_strchr(char *s, int c);
+char	*read_first_line(int fd, char *str);
+char	*read_correct_line(char *str);
 int		ft_atoi(const char *nptr);
 char	**ft_split(const char *s, char c);
 char	*ft_strjoin(const char	*s1, const char	*s2);
@@ -53,12 +55,10 @@ size_t	ft_strlen(const char *t);
 int		check_invalid_chars(char **str);
 int		list_size(t_stack **head);
 void	push(t_stack **head, t_stack **node);
-int		ft_abs(int num);
 int		is_sorted(t_stack **head);
 int		get_node_position(t_stack **head, int number);
 void	sort_index(t_stack **head);
 int		check_duplicates(int *tab, int size);
-int		check_for_max_int(char **str);
 void	quite_exit(void);
 void	sa(t_stack **head);
 void	sb(t_stack **head);
@@ -71,29 +71,12 @@ void	rrb(t_stack **head);
 void	rrr(t_stack **sa, t_stack **sb);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
-void	sort(t_stack **stack_a, t_stack **stack_b, int b_size, int o_size);
-void	split_bucket(t_stack **stack_a, t_stack **stack_b, int size);
-void	buckets(t_stack **stack_a, t_stack **stack_b);
-void	top_and_push(t_stack **stack_a, t_stack **stack_b, int pos);
-void	sort(t_stack **stack_a, t_stack **stack_b, int b_size, int o_size);
-void	split_bucket(t_stack **stack_a, t_stack **stack_b, int size);
-void	get_two_maxs(t_stack **head, t_maximus **maxs);
-void	final_sort(t_stack **stack_a, t_stack **stack_b);
-void	buckets(t_stack **stack_a, t_stack **stack_b);
-int		get_position(t_stack **head, int number);
-void	top_and_push(t_stack **stack_a, t_stack **stack_b, int pos);
-void	hard_coded(t_stack **head);
-void	sort4(t_stack **stack_a, t_stack **stack_b);
-void	sort5(t_stack **stack_a, t_stack **stack_b);
-void	small_size_sort(t_stack **stack_a, t_stack **stack_b, int size);
-int		search_min(t_stack **head);
-void	position_sort_case1(t_stack **stack_a, t_stack **stack_b);
-void	position_sort_case2(t_stack **stack_a, t_stack **stack_b);
-void	max_it(t_stack **head, int num);
 int		is_empty(char *str);
 int		is_number(char c);
 int		is_signe(char c);
+void	checker(t_stack **stack_a, t_stack **stack_b, char **instructions);
 void	free_full(char **str);
-char	*join_params(char **av, int ac);
+int		instructions_checker(char *str);
+void	execute_instructions(t_stack **stack_a, t_stack **stack_b, char *str);
 
 #endif

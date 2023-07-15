@@ -6,11 +6,11 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 13:56:08 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 23:31:45 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:24:44 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
 char	*ft_strjoin(const char	*s1, const char	*s2)
 {

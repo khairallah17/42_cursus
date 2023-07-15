@@ -6,11 +6,11 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 11:14:30 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 23:52:29 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/14 22:59:04 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
 t_stack	*create_node(int number)
 {

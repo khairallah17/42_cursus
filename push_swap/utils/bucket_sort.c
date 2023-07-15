@@ -6,7 +6,7 @@
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 15:05:49 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 00:52:41 by mkhairal         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:20:53 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	final_sort(t_stack **stack_a, t_stack **stack_b)
 	t_maximus	*maxs;
 
 	maxs = (t_maximus *)malloc(sizeof(t_maximus));
-			printf("final sort %p\n", maxs);
 	maxs->max1 = INT_MIN;
 	maxs->max2 = INT_MIN + 1;
 	maxs->pos1 = 0;
@@ -110,8 +109,7 @@ void	final_sort(t_stack **stack_a, t_stack **stack_b)
 		top_and_push(stack_a, stack_b, maxs->max1);
 		top_and_push(stack_a, stack_b, maxs->max2);
 	}
-	if (*stack_b == NULL)
-		free(maxs);
+	free(maxs);
 }
 
 void	buckets(t_stack **stack_a, t_stack **stack_b)
@@ -124,9 +122,7 @@ void	buckets(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	size = list_size(stack_a);
 	if (size <= 5)
-	{
 		small_size_sort(stack_a, stack_b, size);
-	}
 	else if (size > 5)
 	{
 		split_bucket(stack_a, stack_b, size);

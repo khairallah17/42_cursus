@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhairal <mkhairal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/09 13:56:08 by mkhairal          #+#    #+#             */
-/*   Updated: 2023/07/14 23:31:45 by mkhairal         ###   ########.fr       */
+/*   Created: 2023/07/08 22:23:17 by mkhairal          #+#    #+#             */
+/*   Updated: 2023/07/15 11:37:31 by mkhairal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strjoin(const char	*s1, const char	*s2)
+int	ft_strcmp(const char *s1, char const *s2)
 {
-	char	*s;
-	int		i;
-	int		j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
-	s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!s)
-		return (NULL);
-	while (s1[j])
-		s[i++] = s1[j++];
-	j = 0;
-	while (s2[j])
-		s[i++] = s2[j++];
-	s[i] = '\0';
-	return (s);
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }

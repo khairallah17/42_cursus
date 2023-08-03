@@ -14,7 +14,7 @@ NAME = push_swap
 NAME_BONUS = checker
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address -g
+CFLAGS = -g -fsanitize=address -g
 RM = rm -f
 
 SRC = push_swap_main.c \
